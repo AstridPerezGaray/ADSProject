@@ -25,7 +25,13 @@ namespace ADSProject.Controllers
         [HttpPost("agregarEstudiante")] //FUNCIONA
         public ActionResult<string> AgregarEstudiante([FromBody] Estudiante estudiante)
         {
-            try { 
+            try {
+                //Verificar que todad las validacioones por atributo  dekl modelo este correctas.
+                if (!ModelState.IsValid)
+                {
+                    //En caso de no cumplir con topdas las validaciones se procede a retornar una respuesta erronea.
+                    return BadRequest(ModelState);
+                }
                 int contador = this.estudiante.AgregarEstudiante(estudiante);
 
                 if(contador > 0)
@@ -52,6 +58,12 @@ namespace ADSProject.Controllers
         {
             try
             {
+                //Verificar que todad las validacioones por atributo  dekl modelo este correctas.
+                if (!ModelState.IsValid)
+                {
+                    //En caso de no cumplir con topdas las validaciones se procede a retornar una respuesta erronea.
+                    return BadRequest(ModelState);
+                }
                 int contador = this.estudiante.ActualizarEstudiante(idEstudiante, estudiante);
 
                 if (contador > 0)
