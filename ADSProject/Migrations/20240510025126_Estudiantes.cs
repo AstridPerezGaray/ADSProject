@@ -18,8 +18,8 @@ namespace ADSProject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NombreEstudiante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ApellidoEstudiante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Codigoestudiante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Correoestudiante = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: false)
+                    CodigoEstudiante = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CorreoEstudiante = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: false)
                 },
                 constraints: table =>
                 {

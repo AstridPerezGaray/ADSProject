@@ -12,7 +12,7 @@ namespace ADSProject.Interfaces
 
         public List<Carrera> ObtenerTodosLasCarreras();
 
-        public Carrera ObtenercarrerasPorID(int carreras);
+        public Carrera ObtenercarrerasPorID(int idcarrera);
     }
 }
 

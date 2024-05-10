@@ -5,6 +5,7 @@ using ADSProject.Repositores;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
 //Configurando DBContext
 builder.Services.AddDbContext<ApplicationDbContext>(opciones => opciones.UseSqlServer("name=DefaultConnection"));
 
@@ -17,9 +18,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Configurando inyeccion de Dependencias
-builder.Services.AddSingleton<IEstudiante, EstudianteRepository>();
-builder.Services.AddSingleton<IECarrera,CarreraRepository>();
-builder.Services.AddSingleton<IMateria, MateriaRepository>();
+builder.Services.AddScoped<IEstudiante, EstudianteRepository>();
+builder.Services.AddScoped<IECarrera,CarreraRepository>();
+builder.Services.AddScoped<IMateria, MateriaRepository>();
+builder.Services.AddScoped<IGrupo, GrupoRepository>();
+builder.Services.AddScoped<IProfesor, ProfesorRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
